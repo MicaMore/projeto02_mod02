@@ -1,4 +1,6 @@
 const express = require("express");
+const req = require("express/lib/request");
+const { redirect } = require("express/lib/response");
 const path = require("path");
 const app = express();
 
@@ -6,6 +8,7 @@ const port = 3000;
 
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.urlencoded());
 
 const pokedex = [
   {
@@ -48,7 +51,13 @@ const pokedex = [
 
 //Rotas
 app.get("/", (req, res) => {
-  res.render("index", {pokedex});
+  res.render("index", { pokedex });
+});
+
+app.post("/add", (req, res) => {
+  const pokemon = req.body;
+  pokedex.push(pokemon);
+  res.redirect("/");
 });
 
 app.listen(port, () =>
