@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/detalhes.css" />
+    <title>Pokédex</title>
+  </head>
+  <body>
+      <nav>
+        <ul>
+          <li><h1>Pokedéx</h1></li>
+          <li><img src="/img/adesivo-Pokedex-Air-Force-1-danilo-the-hype-nerd-stickers.webp" alt="Pokebola"></li>
+          <li><a id="btnCadastrar" href="/cadastro">Cadastrar</a></li>
+          <li><a id="btnMeusPokemos"href="/#cards">Meus Pokemons</a></li>
+            
+        </ul>
+    </nav>
+
+    <main>
+      <section id="cards">
+
+        <% pokedex.forEach((pokemon) => {  if (pokemon.id == pok) {%>
+        <div class="cardDetalhes">
+          <img src="<%= pokemon.imagem %>" alt="imagem do pokemon" />
+          <h3><%= pokemon.nome%></h3>
+          <p class="id">Id: <span id="id"><%= pokemon.id%></span></p>
+          <p class="tipo">Tipo: <span id="tipo"><%= pokemon.tipo%></span></p>
+          <p class="descricao">Descrição: <span id="descricao"><%= pokemon.descricao%></span></p>
+          <p class="altura">Altura: <span id="altura"><%= pokemon.altura%></span></p>
+          <p class="peso">Peso: <span id="peso"><%= pokemon.peso%></span></p>
+          <p class="categoria">Categoria: <span id="categoria"><%= pokemon.categoria%></span></p>
+          <p class="habilidade">Habilidade: <span id="habilidade"><%= pokemon.habilidade%></span></p>
+        </div>
+        <% } }) %>
+      </section>
+
+    </main>
+
+    <script src="/public/js/script_mensagem.js"></script>
+
+  </body>
+</html>

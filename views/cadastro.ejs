@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/cadastro.css" />
+    <title>Pokedéx | Cadastro</title>
+</head>
+<body>
+      <nav>
+        <ul>
+          <li><h1>Pokedéx</h1></li>
+          <li><img src="/img/adesivo-Pokedex-Air-Force-1-danilo-the-hype-nerd-stickers.webp" alt="Pokebola"></li>
+          <li><a id="btnCadastrar" href="/cadastro">Cadastrar</a></li>
+          <li><a id="btnMeusPokemos"href="/#cards">Meus Pokemons</a></li>
+            
+        </ul>
+    </nav>
+
+    <main>
+      <section id="cadastro">
+
+          <h2>Cadastre um novo Pokémon</h2>
+
+          <form action="/create" method="POST">
+            <label for="nome" id="labelNome">Nome:</label>
+            <input type="text" id="nome" name="nome" />
+
+            <label for="descricao" id="labelDescricao">Descrição:</label>
+            <input type="text" id="descricao" name="descricao" />
+
+            <label for="tipo" id="labelTipo">Tipo:</label>
+            <input type="text" id="tipo" name="tipo" />
+
+            <label for="imagem" id="labelImagem">Link da imagem:</label>
+            <input type="text" id="imagem" name="imagem" />
+
+            <label for="altura" id="labelAltura">Altura:</label>
+            <input type="text" id="altura" name="altura" />
+
+            <label for="peso" id="labelPeso">Peso:</label>
+            <input type="text" id="peso" name="peso" />
+
+            <label for="categoria" id="labelCategoria">Categoria:</label>
+            <input type="text" id="categoria" name="categoria" />
+
+            <label for="habilidade" id="labelHabilidade">Habilidade:</label>
+            <input type="text" id="habilidade" name="habilidade" />
+
+            <button id="btnCadastrar" type="submit" class="buttonDisable">Cadastrar</button>
+          </form>
+      </section>
+
+    </main>
+</body>
+</html>

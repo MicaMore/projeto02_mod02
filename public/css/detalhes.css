@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Roboto, Arial;
+}
+
+nav{
+    padding: 2rem;
+    background-image: url(/img/roystudio150600012.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-bottom-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    box-shadow: 5px 5px 5px 5px #00000015;
+    list-style: none;
+}
+
+nav img{
+    width: 10rem;
+}
+
+nav ul{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+nav ul li{
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+nav h1{
+    color: rgb(66, 66, 66);
+    font-size: 3rem;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    background-color: rgb(66, 66, 66);
+    padding: 0.8rem;
+    border-radius: .5rem;
+
+}
+
+nav ul li a:hover{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    background-color: #fb3c3c;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+section#cards{ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 5rem;
+}
+
+section#cards img{
+    width: 15rem;
+}
+.cardDetalhes{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}

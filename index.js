@@ -1,10 +1,9 @@
+require("dotenv").config();
+
 const express = require("express");
-const req = require("express/lib/request");
-const { redirect } = require("express/lib/response");
 const path = require("path");
 const app = express();
-
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
@@ -50,33 +49,64 @@ const pokedex = [
 ];
 
 let pokemon = undefined;
+let mensagem = "";
+var pok = 1;
 
 //Rotas
+
 app.get("/", (req, res) => {
-  res.render("index", { pokedex, pokemon });
+  
+  setTimeout(() => {
+    mensagem = "";
+  }, 1000);
+  res.render("index", { pokedex, pokemon, mensagem });
+});
+
+app.get("/cadastro", (req, res) => {
+  res.render("cadastro", { pokedex, pokemon });
+});
+
+app.get("/edit", (req, res) => {
+  res.render("edit", { pokedex, pokemon });
+});
+
+app.get("/detalhes", (req, res) => {
+  res.render("detalhes", { pokedex, pok });
+});
+
+app.get("/detalhes/:id", (req, res) => {
+  pok = +req.params.id;
+  res.redirect("/detalhes");
 });
 
 app.post("/create", (req, res) => {
   const pokemon = req.body;
-  pokedex.id = pokedex.length + 1;
+  pokemon.id = pokedex.length + 1;
   pokedex.push(pokemon);
-  res.redirect("/");
+  mensagem = "Pokémon cadastrado com sucesso!";
+  res.redirect("/#cards");
 });
 
-app.get("/detalhes/:id", (req, res) => {
+app.get("/atualizar/:id", (req, res) => {
   const id = +req.params.id;
   pokemon = pokedex.find((pokemon) => pokemon.id === id);
-  res.redirect("/")
-
-}); 
+  res.redirect("/edit");
+});
 
 app.post("/update/:id", (req, res) => {
   const id = +req.params.id - 1;
-  const newPokemon = req.body
-  newPokemon.id = id+1;
+  const newPokemon = req.body;
+  newPokemon.id = id + 1;
   pokedex[id] = newPokemon;
   pokemon = undefined;
-  res.redirect("/")
+  mensagem = "Pokémon atualizado com sucesso!";
+  res.redirect("/#cards");
+});
+
+app.get("/delete/:id", (req, res) => {
+  const id = +req.params.id - 1;
+  delete pokedex[id];
+  res.redirect("/#cards");
 });
 
 app.listen(port, () =>
